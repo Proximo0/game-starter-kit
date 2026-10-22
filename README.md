@@ -37,6 +37,7 @@ kit-only files, runs `git init` (`--no-git` skips it) and prints the next steps:
 | `docs/online.md` | The host-authoritative online pattern: messages, budget, latency handling, soak, service layer, credentials. |
 | `docs/android.md` | Android debug APK from the cloud box, install, touch control pattern. |
 | `docs/agent_dashboard.md` | Agent dashboard set-up and refresh (agents, models, token pull per minute, CI). |
+| `tools/ops_board/` | Ops board kit: a reusable Dashboard-type artifact page (`index.html`), `refresh.py` (collects workers, commits, branches, CI runs, checks, assets, goals from any repo with this layout), `schema.md`, `README.md`; `pc/` holds the Windows GPU-box side (PowerShell data builder, Godot probe scripts, test page). |
 | `docs/character_creation_lessons.md` | Read before building any humanoid character. |
 | `docs/lessons_learned.md` | Generic lessons, grouped by topic. |
 | `docs/lessons/` | Game-specific stories: `skate_park.md`, `sandblood.md` (kit only). |
