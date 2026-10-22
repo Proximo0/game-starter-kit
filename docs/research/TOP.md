@@ -1,0 +1,10 @@
+# Top open recommendations (newest evidence first, max 15)
+
+1. Set `CLAUDE_CODE_SUBAGENT_PROMPT_CACHE_TTL=1h` in both repos' `.claude/settings.json` (2026-10-22 #1)
+2. Prefer forks over fresh subagents for context-heavy delegations (2026-10-22 #2)
+3. No mid-task model switch / opusplan; change effort instead (2026-10-22 #3)
+4. Check cache hit rate with `/usage` once (2026-10-22 #4)
+5. A/B caching `.godot/imported` in checks.yml (unverified) (2026-10-22 #5)
+6. Audit shader/particle preloading at arena load for Compatibility stutter (2026-10-22 #6)
+7. Trim small PhysicalBone3D bones from the fighter rig (2026-10-22 #7)
+8. Re-check GitHub self-hosted runner billing status once (2026-10-22 #8)
