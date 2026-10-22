@@ -34,6 +34,7 @@ row, `[{"_empty": "<why>"}]`. The page and its calculations skip marker rows.
 | model | text | model name, or "Not recorded" |
 | status | text | Running, Finished or Stopped (paused, work kept) |
 | branch | text | branch or checkout |
+| session | text | optional: the thread's cloud session id (`session_…`), read by the cost routine |
 
 ### needs_owner: copied from `needs_owner_src.json`
 | field | type | meaning |
@@ -122,3 +123,26 @@ this for `balance_matrix` (string row and column labels plus a numeric rate) and
 | runner_jobs | started (key), result, failed_step, cause |
 | models | model, group, triangles, size_kb, budget |
 | jobs | job (key), status, note |
+
+## Optional (cost routine upload)
+Written by `thread_costs.py` from the cloud session records of the project's threads (the daily cost routine; see
+docs/agent_dashboard.md). Thread ids come from the `session` field of `workers_src.json` rows.
+
+### threads: one row per thread session
+| field | type | meaning |
+| --- | --- | --- |
+| id | text (key) | session id |
+| title, role, model, effort | text | thread title; lead or worker; last served model; effort level |
+| status | text | running, blocked, review, done, failed |
+| created, updated | text | session start; last activity |
+| minutes | number | created to updated |
+| cost_usd, cost_per_hour | number | session total; per wall-clock hour |
+| input_tokens, cache_read_tokens, cache_write_tokens, output_tokens | number | session totals |
+| context_used | number | context tokens at the last turn |
+
+### threads_total: one row
+| field | type | meaning |
+| --- | --- | --- |
+| threads, running | number | rows; rows running |
+| cost_usd, minutes, tokens, output_tokens | number | sums |
+| cache_read_share | number | cache reads / all tokens (0-1) |
