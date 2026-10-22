@@ -103,3 +103,13 @@ generic rows go into the kit's `docs/lessons_learned.md` under the matching head
 stories that only make sense for that game go into the kit's `docs/lessons/<game>.md`. Tools and docs that proved
 themselves and are not game-specific go into the kit too, with `__PROJECT_NAME__` / `__PROJECT_SLUG__` where the
 name appears, and the kit's own checks (`tools/run_tests.sh`, `tools/lint.sh`) must pass before committing.
+
+## Pacing the weekly budget (production weeks)
+
+- A steady week spends about 1/7 of the weekly limit per day (about 4-5% per five-hour window).
+- Every session checks usage at the start. Ahead of pace: routine work on Sonnet or Haiku at low effort, no ultracode.
+  Behind pace: fan out more cloud threads on the ops board's priority list.
+- Model split: lead/coordinator on the strongest model at normal effort; cloud workers Sonnet by default, the strongest
+  model only for core logic, net code and hard merges; helpers on the GPU PC Sonnet or Haiku.
+- Scale with cloud threads and the free GitHub runners, not with more local workers (a 4-core box saturates at 3-4
+  engine runs). Fresh sessions per task or day keep messages cheap; the lessons file and the ops board carry context.
