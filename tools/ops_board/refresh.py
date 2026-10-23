@@ -39,7 +39,7 @@ DEFAULTS = {
 	},
 	"check_jobs": [
 		{"role": "unit", "check": "Unit tests", "jobs": ["unit"], "count": "unit", "count_what": "test functions"},
-		{"role": "sims", "check": "Regression sims", "jobs": ["sims"], "count": "sims", "count_what": "sim files in the suite"},
+		{"role": "sims", "check": "Regression sims", "job_prefix": "sims", "count": "sims", "count_what": "sim files in the suite"},
 		{"role": "lint", "check": "Lint", "jobs": ["lint"], "count": "lint", "count_what": "scripts linted"},
 		{"role": "bots", "check": "Bot matches", "job_prefix": "bot", "count": "jobs", "count_what": "bot shards"},
 	],
