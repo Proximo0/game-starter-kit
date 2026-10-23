@@ -48,3 +48,4 @@ Daily cost routine (a cloud routine on a cheap model, created by a session that 
    `datasets/threads_total` (`source.url`, `updated`) in one ArtifactData batch, as in the ops board refresh.
 A failed `get_session` keeps the thread's previous row out of the file rather than failing the run; the summary
 line's `threads=` count shows it.
+The board's Work tab shows a Thread cost card (`threads-card`, table on `threads` and totals from `threads_total`). It stays hidden until the `threads` dataset exists.

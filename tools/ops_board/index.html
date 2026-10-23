@@ -160,6 +160,16 @@
           </table>
         </div>
       </div>
+      <div class="sb-card sb-wide" id="threads-card" data-needs="threads">
+        <h2>Thread cost</h2>
+        <p class="note">Each project thread's cost and wall-clock time, from its cloud session record. The daily cost routine refreshes it.</p>
+        <p class="note"><span class="v" data-source="threads_total" data-field="threads" data-row="0" data-fmt="int">—</span> threads, <span class="v" data-source="threads_total" data-field="running" data-row="0" data-fmt="int">—</span> running; <span class="v" data-source="threads_total" data-field="cost_usd" data-row="0" data-fmt="usd">—</span> over <span class="v" data-source="threads_total" data-field="minutes" data-row="0" data-fmt="int">—</span> minutes.</p>
+        <div class="sb-scroll">
+          <table id="threads-table" data-source="threads" data-row-key="id">
+            <thead><tr><th data-field="title"><button>Thread</button></th><th data-field="role"><button>Role</button></th><th data-field="model" class="hide-narrow"><button>Model</button></th><th data-field="status" data-pill="1"><button>Status</button></th><th data-field="minutes" class="num" data-fmt="int"><button>Minutes</button></th><th data-field="cost_usd" class="num" data-fmt="usd"><button>Cost</button></th><th data-field="cost_per_hour" class="num hide-narrow" data-fmt="usd"><button>Per hour</button></th><th data-field="context_used" class="num hide-narrow" data-fmt="int"><button>Context</button></th></tr></thead><tbody></tbody>
+          </table>
+        </div>
+      </div>
       <div class="sb-card" id="where-card">
         <h2>Where the work runs</h2>
         <p class="note">Workers per place, split by status.</p>
@@ -406,7 +416,8 @@
     dec2: (v) => d3.format(',.2f')(num(v)),
     dec3: (v) => d3.format(',.3f')(num(v)),
     pct: (v) => d3.format('.0%')(num(v)),
-    time: (v) => d3.utcFormat('%b %-d, %H:%M UTC')(new Date(v)),
+    usd: (v) => '$' + d3.format(',.2f')(num(v)),
+    time:(v) => d3.utcFormat('%b %-d, %H:%M UTC')(new Date(v)),
     hm: (v) => d3.utcFormat('%H:%M UTC')(new Date(v)),
     day: (v) => d3.utcFormat('%b %-d')(new Date(String(v).slice(0, 10) + 'T00:00:00Z')),
     dur: (v) => { const s = num(v); return s < 60 ? s + ' s' : d3.format('.1f')(s / 60) + ' min'; },
